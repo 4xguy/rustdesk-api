@@ -6,7 +6,7 @@ services:
       - RUSTDESK_API_RUSTDESK_ID_SERVER=rustdesk.icvida.com:21116
       - RUSTDESK_API_RUSTDESK_RELAY_SERVER=rustdesk.icvida.com:21117
       - RUSTDESK_API_RUSTDESK_API_SERVER=https://rdapi.icvida.com
-      - RUSTDESK_API_RUSTDESK_KEY=1234567891234567879
+      - RUSTDESK_API_RUSTDESK_KEY=v6I9FHD5VKKjdx0j9w+SBjftoONAJL8KE5ekyQ7uCjw=
     ports:
       - 21114:21114
     volumes:
