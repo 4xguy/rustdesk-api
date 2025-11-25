@@ -1,12 +1,11 @@
 services:
   rustdesk-api:
     image: lejianwen/rustdesk-api
-    container_name: rustdesk-api
     environment:
       - TZ=America/Mazatlan
-      - RUSTDESK_API_RUSTDESK_ID_SERVER=https://rustdesk.icvida.com:21116
-      - RUSTDESK_API_RUSTDESK_RELAY_SERVER=https://rustdesk.icvida.com:21117
-      - RUSTDESK_API_RUSTDESK_API_SERVER=http://127.0.0.1:21114
+      - RUSTDESK_API_RUSTDESK_ID_SERVER=rustdesk.icvida.com:21116
+      - RUSTDESK_API_RUSTDESK_RELAY_SERVER=rustdesk.icvida.com:21117
+      - RUSTDESK_API_RUSTDESK_API_SERVER=https://rdapi.icvida.com
       - RUSTDESK_API_RUSTDESK_KEY=1234567891234567879
     ports:
       - 21114:21114
@@ -15,3 +14,15 @@ services:
       # - ./conf:/app/conf # config
       # - ./resources:/app/resources # 静态资源
     restart: unless-stopped
+    networks:
+      - dokploy-network
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.rustdesk-api.rule=Host(`rdapi.icvida.com`)"
+      - "traefik.http.routers.rustdesk-api.entrypoints=websecure"
+      - "traefik.http.routers.rustdesk-api.tls.certResolver=letsencrypt"
+      - "traefik.http.services.rustdesk-api.loadbalancer.server.port=21114"
+
+networks:
+  dokploy-network:
+    external: true
