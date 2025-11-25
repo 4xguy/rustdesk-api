@@ -10,7 +10,7 @@ services:
     ports:
       - 21114:21114
     volumes:
-      - ./data/rustdesk/api:/app/data # database
+      - /etc/dokploy/mounts/rustdesk-api/data:/app/data # database
       # - ./conf:/app/conf # config
       # - ./resources:/app/resources # 静态资源
     restart: unless-stopped
