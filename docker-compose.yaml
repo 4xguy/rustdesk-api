@@ -3,11 +3,11 @@ services:
     image: lejianwen/rustdesk-api
     container_name: rustdesk-api
     environment:
-      - TZ=Asia/Shanghai
-      - RUSTDESK_API_RUSTDESK_ID_SERVER=192.168.1.66:21116
-      - RUSTDESK_API_RUSTDESK_RELAY_SERVER=192.168.1.66:21117
+      - TZ=America/Mazatlan
+      - RUSTDESK_API_RUSTDESK_ID_SERVER=https://rustdesk.icvida.com:21116
+      - RUSTDESK_API_RUSTDESK_RELAY_SERVER=https://rustdesk.icvida.com:21117
       - RUSTDESK_API_RUSTDESK_API_SERVER=http://127.0.0.1:21114
-      - RUSTDESK_API_RUSTDESK_KEY=123456789
+      - RUSTDESK_API_RUSTDESK_KEY=1234567891234567879
     ports:
       - 21114:21114
     volumes:
